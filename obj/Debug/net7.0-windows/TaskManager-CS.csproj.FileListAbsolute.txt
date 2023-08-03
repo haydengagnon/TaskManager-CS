@@ -1,0 +1,17 @@
+C:\TaskManagerApp\TaskManager-CS\bin\Debug\net7.0-windows\TaskManager-CS.exe
+C:\TaskManagerApp\TaskManager-CS\bin\Debug\net7.0-windows\TaskManager-CS.deps.json
+C:\TaskManagerApp\TaskManager-CS\bin\Debug\net7.0-windows\TaskManager-CS.runtimeconfig.json
+C:\TaskManagerApp\TaskManager-CS\bin\Debug\net7.0-windows\TaskManager-CS.dll
+C:\TaskManagerApp\TaskManager-CS\bin\Debug\net7.0-windows\TaskManager-CS.pdb
+C:\TaskManagerApp\TaskManager-CS\bin\Debug\net7.0-windows\Newtonsoft.Json.dll
+C:\TaskManagerApp\TaskManager-CS\obj\Debug\net7.0-windows\TaskManager-CS.csproj.AssemblyReference.cache
+C:\TaskManagerApp\TaskManager-CS\obj\Debug\net7.0-windows\TaskManager-CS.GeneratedMSBuildEditorConfig.editorconfig
+C:\TaskManagerApp\TaskManager-CS\obj\Debug\net7.0-windows\TaskManager-CS.AssemblyInfoInputs.cache
+C:\TaskManagerApp\TaskManager-CS\obj\Debug\net7.0-windows\TaskManager-CS.AssemblyInfo.cs
+C:\TaskManagerApp\TaskManager-CS\obj\Debug\net7.0-windows\TaskManager-CS.csproj.CoreCompileInputs.cache
+C:\TaskManagerApp\TaskManager-CS\obj\Debug\net7.0-windows\TaskManager-CS.csproj.CopyComplete
+C:\TaskManagerApp\TaskManager-CS\obj\Debug\net7.0-windows\TaskManager-CS.dll
+C:\TaskManagerApp\TaskManager-CS\obj\Debug\net7.0-windows\refint\TaskManager-CS.dll
+C:\TaskManagerApp\TaskManager-CS\obj\Debug\net7.0-windows\TaskManager-CS.pdb
+C:\TaskManagerApp\TaskManager-CS\obj\Debug\net7.0-windows\TaskManager-CS.genruntimeconfig.cache
+C:\TaskManagerApp\TaskManager-CS\obj\Debug\net7.0-windows\ref\TaskManager-CS.dll
