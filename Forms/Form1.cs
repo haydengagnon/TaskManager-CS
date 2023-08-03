@@ -14,5 +14,11 @@ public partial class Form1 : Form
         InitializeComponent();
         this.StartPosition = FormStartPosition.CenterScreen;
         this.ClientSize = new Size(SCREEN_WIDTH, SCREEN_HEIGHT);
+        this.DoubleBuffered = true;
+        this.BackColor = Color.Black;
+
+        Label toDo = new Label();
+        toDo.Text = "Tasks";
+        
     }
 }
