@@ -67,8 +67,10 @@ namespace TaskManager_CS
             foreach (var task in taskList)
             {
                 Label taskLabel = new Label();
-                taskLabel.Text = $"{task.Title} - {task.DueDate.ToShortDateString()}";
+                taskLabel.Text = $"{task.Title} - {task.Description} - {task.DueDate.ToShortDateString()}";
                 taskLabel.ForeColor = Color.White;
+                taskLabel.Size = new Size(SCREEN_WIDTH - 10, 50);
+                taskLabel.Font = new Font(taskLabel.Font.FontFamily, 18);
                 taskLabel.Location = new Point(10, yOffset);
                 yOffset += taskLabel.Height + 5;
                 Controls.Add(taskLabel);

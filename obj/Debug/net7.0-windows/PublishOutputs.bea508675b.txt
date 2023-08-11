@@ -1,0 +1,6 @@
+C:\TaskManagerApp\TaskManager-CS\bin\Debug\net7.0-windows\publish\TaskManager-CS.exe
+C:\TaskManagerApp\TaskManager-CS\bin\Debug\net7.0-windows\publish\TaskManager-CS.dll
+C:\TaskManagerApp\TaskManager-CS\bin\Debug\net7.0-windows\publish\TaskManager-CS.deps.json
+C:\TaskManagerApp\TaskManager-CS\bin\Debug\net7.0-windows\publish\TaskManager-CS.runtimeconfig.json
+C:\TaskManagerApp\TaskManager-CS\bin\Debug\net7.0-windows\publish\TaskManager-CS.pdb
+C:\TaskManagerApp\TaskManager-CS\bin\Debug\net7.0-windows\publish\Newtonsoft.Json.dll
