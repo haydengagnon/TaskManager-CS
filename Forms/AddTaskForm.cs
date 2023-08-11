@@ -8,14 +8,18 @@ namespace TaskManager_CS
     {
         private const int SCREEN_WIDTH = 600;
         private const int SCREEN_HEIGHT = 800;
+        private List<Task> taskList;
+        private Action updateDisplay;
         TextBox titleTextBox = new System.Windows.Forms.TextBox();
         TextBox descriptionTextBox = new System.Windows.Forms.TextBox();
         DateTimePicker dueDatePicker = new DateTimePicker();
         Button addButton = new Button();
 
-        public AddTaskForm()
+        public AddTaskForm(List<Task> taskList, Action updateDisplay)
         {
             InitializeComponent();
+            this.taskList = taskList;
+            this.updateDisplay = updateDisplay;
                      
             this.StartPosition = FormStartPosition.CenterScreen;
             this.ClientSize = new Size(SCREEN_WIDTH, SCREEN_HEIGHT);
@@ -52,6 +56,23 @@ namespace TaskManager_CS
             addButton.BackColor = Color.Green;
             addButton.Click += new EventHandler(onButtonClickedAddButon);
             this.Controls.Add(addButton);
+        }
+
+        private void onButtonClickedAddButon(object sender, EventArgs e)
+        {
+            Task newTask = GetTask();
+            taskList.Add(newTask);
+            updateDisplay();
+            this.Close();
+        }
+
+        public Task GetTask()
+        {
+            string title = titleTextBox.Text;
+            string description = descriptionTextBox.Text;
+            DateTime dueDate = dueDatePicker.Value;
+
+            return new Task(title, description, dueDate);
         }
     }
 }

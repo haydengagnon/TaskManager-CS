@@ -9,6 +9,7 @@ namespace TaskManager_CS
         private const int SCREEN_WIDTH = 600;
         private const int SCREEN_HEIGHT = 800;
         List<Task> taskList = new List<Task>();
+        Label title = new Label();
 
         public Form1()
         {
@@ -34,7 +35,6 @@ namespace TaskManager_CS
             this.Controls.Add(newTask);
 
             //Create Title at the top of the app
-            Label title = new Label();
             title.Text = "Task Manager";
             title.Font = new Font(title.Font.FontFamily, 32);
             title.ForeColor = Color.White;
@@ -47,23 +47,46 @@ namespace TaskManager_CS
         private void onButtonClickedNewTask(object sender, EventArgs e)
         {
             //open addtaskform.cs
-            AddTaskForm taskform = new AddTaskForm();
-            taskform.Show();
+            AddTaskForm taskform = new AddTaskForm(taskList, UpdateTaskDisplay);
+            taskform.ShowDialog();
+        }
+        public void UpdateTaskDisplay()
+        {
+            //Clear existing task labels below title label
+            foreach (Control control in Controls)
+            {
+                if(control is Label taskLabel && control != title)
+                {
+                    Controls.Remove(control);
+                    control.Dispose();
+                }
+            }
+
+            //Display tasks below title label
+            int yOffset = title.Bottom + 10;
+            foreach (var task in taskList)
+            {
+                Label taskLabel = new Label();
+                taskLabel.Text = $"{task.Title} - {task.DueDate.ToShortDateString()}";
+                taskLabel.ForeColor = Color.White;
+                taskLabel.Location = new Point(10, yOffset);
+                yOffset += taskLabel.Height + 5;
+                Controls.Add(taskLabel);
+            }
         }
     }
 
     public class Task
     {
-        string title;
-        string description;
-        DateTime duedate;
+        public string Title {get; private set;}
+        public string Description {get; private set;}
+        public DateTime DueDate {get; private set;}
 
-        public Task(string title, string description, DateTime duedate)
+        public Task(string title, string description, DateTime dueDate)
         {
-            this.title = title;
-            this.description = description;
-            this.duedate = duedate;
+            Title = title;
+            Description = description;
+            DueDate = dueDate;
         }
-    }
+    }   
 }
-
