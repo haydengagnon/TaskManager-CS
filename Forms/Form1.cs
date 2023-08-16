@@ -10,10 +10,12 @@ namespace TaskManager_CS
         private const int SCREEN_HEIGHT = 800;
         List<Task> taskList = new List<Task>();
         Label title = new Label();
+        private DatabaseManager dbManager;
 
         public Form1()
         {
             InitializeComponent();
+            dbManager = new DatabaseManager("../Models/database.db");
             initiate();
             
             void initiate()
@@ -47,8 +49,11 @@ namespace TaskManager_CS
         private void onButtonClickedNewTask(object sender, EventArgs e)
         {
             //open addtaskform.cs
-            AddTaskForm taskform = new AddTaskForm(taskList, UpdateTaskDisplay);
-            taskform.ShowDialog();
+            AddTaskForm taskform = new AddTaskForm(taskList, UpdateTaskDisplay, dbManager);
+            if (taskform.ShowDialog() == DialogResult.OK)
+            {
+                UpdateTaskDisplay();
+            }
         }
         public void UpdateTaskDisplay()
         {

@@ -15,7 +15,7 @@ namespace TaskManager_CS
         DateTimePicker dueDatePicker = new DateTimePicker();
         Button addButton = new Button();
 
-        public AddTaskForm(List<Task> taskList, Action updateDisplay)
+        public AddTaskForm(List<Task> taskList, Action updateDisplay, DatabaseManager dbManager)
         {
             InitializeComponent();
             this.taskList = taskList;
@@ -54,11 +54,11 @@ namespace TaskManager_CS
             addButton.TextAlign = ContentAlignment.MiddleCenter;
             addButton.ForeColor = Color.White;
             addButton.BackColor = Color.Green;
-            addButton.Click += new EventHandler(onButtonClickedAddButon);
+            addButton.Click += new EventHandler(onButtonClickedAddButton);
             this.Controls.Add(addButton);
         }
 
-        private void onButtonClickedAddButon(object sender, EventArgs e)
+        private void onButtonClickedAddButton(object sender, EventArgs e)
         {
             Task newTask = GetTask();
             taskList.Add(newTask);
