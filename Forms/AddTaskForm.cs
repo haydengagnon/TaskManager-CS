@@ -15,7 +15,7 @@ namespace TaskManager_CS
         DateTimePicker dueDatePicker = new DateTimePicker();
         Button addButton = new Button();
 
-        public AddTaskForm(List<Task> taskList, Action updateDisplay, DatabaseManager dbManager)
+        public AddTaskForm(List<Task> taskList, Action updateDisplay)
         {
             InitializeComponent();
             this.taskList = taskList;
@@ -72,7 +72,7 @@ namespace TaskManager_CS
             string description = descriptionTextBox.Text;
             DateTime dueDate = dueDatePicker.Value;
 
-            return new Task(title, description, dueDate);
+            return new Task(0, title, description, dueDate);
         }
     }
 }

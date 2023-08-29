@@ -1,6 +1,7 @@
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Data.SQLite;
 
 namespace TaskManager_CS
 {
@@ -8,18 +9,18 @@ namespace TaskManager_CS
     {
         private const int SCREEN_WIDTH = 600;
         private const int SCREEN_HEIGHT = 800;
+
         List<Task> taskList = new List<Task>();
         Label title = new Label();
-        private DatabaseManager dbManager;
+        DatabaseManager dbManager = new DatabaseManager();
 
         public Form1()
         {
+            LoadTaskList();
+            UpdateTaskDisplay();
             InitializeComponent();
-            dbManager = new DatabaseManager("../Models/database.db");
-            initiate();
+            dbManager.CreateDatabase();
             
-            void initiate()
-            {
             this.StartPosition = FormStartPosition.CenterScreen;
             this.ClientSize = new Size(SCREEN_WIDTH, SCREEN_HEIGHT);
             this.DoubleBuffered = true;
@@ -44,12 +45,12 @@ namespace TaskManager_CS
             title.Size = new Size(SCREEN_WIDTH, 60);
             title.TextAlign = ContentAlignment.MiddleCenter;
             this.Controls.Add(title);
-            }
         }
+
         private void onButtonClickedNewTask(object sender, EventArgs e)
         {
             //open addtaskform.cs
-            AddTaskForm taskform = new AddTaskForm(taskList, UpdateTaskDisplay, dbManager);
+            AddTaskForm taskform = new AddTaskForm(taskList, UpdateTaskDisplay);
             if (taskform.ShowDialog() == DialogResult.OK)
             {
                 UpdateTaskDisplay();
@@ -81,16 +82,26 @@ namespace TaskManager_CS
                 Controls.Add(taskLabel);
             }
         }
+
+        private void LoadTaskList()
+        {
+            DateTime dt1 = new DateTime();
+            Task task = new Task(0,"Laundry","Do Laundry", dt1);
+            taskList.Add(task);
+        }
     }
 
     public class Task
     {
+        public int Id {get; private set;}
         public string Title {get; private set;}
         public string Description {get; private set;}
         public DateTime DueDate {get; private set;}
 
-        public Task(string title, string description, DateTime dueDate)
+
+        public Task(int id, string title, string description, DateTime dueDate)
         {
+            Id = id;
             Title = title;
             Description = description;
             DueDate = dueDate;
