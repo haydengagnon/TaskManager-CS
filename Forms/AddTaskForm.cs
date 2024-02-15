@@ -1,5 +1,6 @@
 using System;
 using System.Drawing;
+using System.Text.Json;
 using System.Windows.Forms;
 
 namespace TaskManager_CS
@@ -10,6 +11,7 @@ namespace TaskManager_CS
         private const int SCREEN_HEIGHT = 800;
         private List<Task> taskList;
         private Action updateDisplay;
+        private int id = 0;
         TextBox titleTextBox = new System.Windows.Forms.TextBox();
         TextBox descriptionTextBox = new System.Windows.Forms.TextBox();
         DateTimePicker dueDatePicker = new DateTimePicker();
@@ -63,6 +65,15 @@ namespace TaskManager_CS
             Task newTask = GetTask();
             taskList.Add(newTask);
             updateDisplay();
+            if (File.Exists(@"C:\TaskManagerApp\TaskManager-CS\savedform.json") != true)
+            {
+                File.Create(@"C:\TaskManagerApp\TaskManager-CS\savedform.json");
+            }
+            var json = JsonSerializer.Serialize(taskList);
+            File.WriteAllText(@"C:\TaskManagerApp\TaskManager-CS\savedform.json", json);
+            id++;
+            Console.WriteLine(json);
+
             this.Close();
         }
 
@@ -72,7 +83,7 @@ namespace TaskManager_CS
             string description = descriptionTextBox.Text;
             DateTime dueDate = dueDatePicker.Value;
 
-            return new Task(0, title, description, dueDate);
+            return new Task(id, title, description, dueDate);
         }
     }
 }

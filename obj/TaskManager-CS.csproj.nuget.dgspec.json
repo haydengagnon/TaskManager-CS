@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\TaskManagerApp\\TaskManager-CS\\TaskManager-CS.csproj": {}
+    "c:\\TaskManagerApp\\TaskManager-CS\\TaskManager-CS.csproj": {}
   },
   "projects": {
-    "C:\\TaskManagerApp\\TaskManager-CS\\TaskManager-CS.csproj": {
+    "c:\\TaskManagerApp\\TaskManager-CS\\TaskManager-CS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\TaskManagerApp\\TaskManager-CS\\TaskManager-CS.csproj",
+        "projectUniqueName": "c:\\TaskManagerApp\\TaskManager-CS\\TaskManager-CS.csproj",
         "projectName": "TaskManager-CS",
-        "projectPath": "C:\\TaskManagerApp\\TaskManager-CS\\TaskManager-CS.csproj",
+        "projectPath": "c:\\TaskManagerApp\\TaskManager-CS\\TaskManager-CS.csproj",
         "packagesPath": "C:\\Users\\nibbl\\.nuget\\packages\\",
-        "outputPath": "C:\\TaskManagerApp\\TaskManager-CS\\obj\\",
+        "outputPath": "c:\\TaskManagerApp\\TaskManager-CS\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\nibbl\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -66,7 +66,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
         }
       }
     }

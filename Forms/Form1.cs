@@ -2,6 +2,9 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Data.SQLite;
+using System.Text.Json.Nodes;
+using System.Net.Http.Json;
+using Newtonsoft.Json.Linq;
 
 namespace TaskManager_CS
 {
@@ -12,14 +15,13 @@ namespace TaskManager_CS
 
         List<Task> taskList = new List<Task>();
         Label title = new Label();
-        DatabaseManager dbManager = new DatabaseManager();
+    
 
         public Form1()
         {
+            InitializeComponent();
             LoadTaskList();
             UpdateTaskDisplay();
-            InitializeComponent();
-            dbManager.CreateDatabase();
             
             this.StartPosition = FormStartPosition.CenterScreen;
             this.ClientSize = new Size(SCREEN_WIDTH, SCREEN_HEIGHT);
@@ -31,7 +33,7 @@ namespace TaskManager_CS
             newTask.Font = new Font(newTask.Font.FontFamily, 20);
             newTask.ForeColor = Color.White;
             newTask.BackColor = Color.SlateGray;
-            newTask.Size = new Size(100, 60);
+            newTask.Size = new Size(SCREEN_WIDTH / 6, 60);
             newTask.TextAlign = ContentAlignment.MiddleCenter;
             newTask.Location = new Point(SCREEN_WIDTH - 100, 0);
             newTask.Click += new EventHandler(onButtonClickedNewTask);
@@ -69,7 +71,7 @@ namespace TaskManager_CS
             }
 
             //Display tasks below title label
-            int yOffset = title.Bottom + 10;
+            int yOffset = 70;
             foreach (var task in taskList)
             {
                 Label taskLabel = new Label();
@@ -85,26 +87,19 @@ namespace TaskManager_CS
 
         private void LoadTaskList()
         {
+            string jsonData = string.Empty;
+            if (jsonData != string.Empty)
+            {
+                jsonData = File.ReadAllText(@"C:\TaskManagerApp\TaskManager-CS\savedform.json");
+                JObject jObj = JObject.Parse(jsonData);
+                Console.WriteLine(jObj);
+            }
+            
+            //var ids = jObj["Id"]["Title"]["Description"]["DueDate"];
+
             DateTime dt1 = new DateTime();
             Task task = new Task(0,"Laundry","Do Laundry", dt1);
             taskList.Add(task);
         }
     }
-
-    public class Task
-    {
-        public int Id {get; private set;}
-        public string Title {get; private set;}
-        public string Description {get; private set;}
-        public DateTime DueDate {get; private set;}
-
-
-        public Task(int id, string title, string description, DateTime dueDate)
-        {
-            Id = id;
-            Title = title;
-            Description = description;
-            DueDate = dueDate;
-        }
-    }   
 }

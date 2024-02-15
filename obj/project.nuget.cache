@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "GgN3dPXQ7VayHOFP8qzvfqIy2jahWgoSrOvMNSTHkbYB1qAY1iFwz//BmH4x44J4QSW0DCxgXN02xrPelGBI7w==",
+  "dgSpecHash": "TV6WcyalpCTN42mjm7+8HyKJ7M/I19YOb1jIvVK2nJz/BxXJp6DkMFFMFhXGsCR1BW8t9HfAME3PtbjdTeiBIA==",
   "success": true,
-  "projectFilePath": "C:\\TaskManagerApp\\TaskManager-CS\\TaskManager-CS.csproj",
+  "projectFilePath": "c:\\TaskManagerApp\\TaskManager-CS\\TaskManager-CS.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\nibbl\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
     "C:\\Users\\nibbl\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
